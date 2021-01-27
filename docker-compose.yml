@@ -19,7 +19,7 @@ services:
       - laravel
 
   nginx:
-    image: nginx:1.17-alpine
+    image: nginx:1.19.6-alpine
     container_name: nginx
     restart: unless-stopped
     ports:
@@ -47,8 +47,16 @@ services:
       SERVICE_NAME: mysql
     networks:
       - laravel
-
+  redis:
+    container_name: redis
+    image: redis:alpine3.12
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis:/var/lib/redis
+    environment:
+      - REDIS_REPLICATION_MODE=master
 
 volumes:
   mysql_data:
-  
+  redis:
