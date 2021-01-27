@@ -1,5 +1,5 @@
 ## A Skeleton instance for laravel dockerized application.
-______________
+
 # HOW TO:
 
 ## Requirements :
