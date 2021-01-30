@@ -1,7 +1,12 @@
-version: '3'
+version: '3.5'
 
 networks:
   laravel:
+    name: laravelDevInfrastructure
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.2.0/16
 
 services:
   php:
@@ -16,7 +21,8 @@ services:
     volumes:
       - ./:/var/www
     networks:
-      - laravel
+      laravel:
+        ipv4_address: 172.22.1.20
 
   nginx:
     image: nginx:1.19.6-alpine
@@ -28,7 +34,8 @@ services:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d
     networks:
-      - laravel
+      laravel:
+        ipv4_address: 172.22.1.22
 
   mysql:
     image: mysql:8.0
@@ -46,7 +53,9 @@ services:
       MYSQL_ROOT_PASSWORD: laravel
       SERVICE_NAME: mysql
     networks:
-      - laravel
+      laravel:
+        ipv4_address: 172.22.1.25
+
   redis:
     container_name: redis
     image: redis:alpine3.12
@@ -56,6 +65,9 @@ services:
       - redis:/var/lib/redis
     environment:
       - REDIS_REPLICATION_MODE=master
+    networks:
+      laravel:
+        ipv4_address: 172.22.1.23
 
 volumes:
   mysql_data:
