@@ -27,11 +27,12 @@ _______________
 1. Build docker-compose run --> `docker-compose up -d`
 1. You can access laravel application at http://localhost:8000
 1. If you get ERROR 500 Check for .env file if file not exists rename .env.sample to .env
-1. And run php artisan key:generate to generate new app ke
+1. And run php artisan key:generate to generate new app key
+1. You can access laravel application at http://172.22.1.22
 __________________
 **Mysql Settings:**
 
-* DB_HOST=127.0.0.1
+* DB_HOST=172.22.1.25
 * DB_PORT=3306
 * DB_DATABASE=laravel
 * DB_USERNAME=laravel
@@ -39,7 +40,7 @@ __________________
 
 **Redis Settings:**
 
-* REDIS_HOST=127.0.0.1
+* REDIS_HOST=172.22.1.23
 * REDIS_PASSWORD=
 * REDIS_PORT=6379
 
