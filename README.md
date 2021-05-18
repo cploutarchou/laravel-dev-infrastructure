@@ -20,7 +20,7 @@ _______________
 
 1. Run --> `composer create-project laravel/laravel example-app`
 1. Wait until the composer create the project.
-1. Copy the contents of .env.sample content to .env file.1.
+1. Copy the contents of .env.sample content to .env file.
 1. Run --> `composer update`
 1. Copy the contents of example-app to root directory
 1. Run php artisan key:generate to generate new app key
