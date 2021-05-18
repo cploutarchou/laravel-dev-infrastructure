@@ -1,4 +1,4 @@
-## A Skeleton instance for laravel dockerized application.
+## Containerize a Laravel Application
 
 # HOW TO:
 
