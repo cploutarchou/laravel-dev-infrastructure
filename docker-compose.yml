@@ -9,14 +9,11 @@ networks:
         - subnet: 172.22.2.0/16
 
 services:
-  php:
+  laravel:
     build:
-      args:
-        user: christos
-        uid: 1000
       context: .
       dockerfile: Dockerfile
-    container_name: php
+    container_name: laravel
     working_dir: /var/www/
     volumes:
       - ./:/var/www
@@ -29,7 +26,7 @@ services:
     container_name: nginx
     restart: unless-stopped
     ports:
-      - 8000:80
+      - 80:80
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d
